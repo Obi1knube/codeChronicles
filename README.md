@@ -128,5 +128,145 @@ You are required to submit BOTH of the following for review:
 
 * The URL of the GitHub repository, with a unique name and a readme describing the project.
 
+
+To create the CMS-style blog site and follow the MVC architectural structure, the following files and directories may be needed:
+
+
+
+models directory:
+
+
+
+User.js: Model for the User table in the database.
+
+Post.js: Model for the Post table in the database.
+
+Comment.js: Model for the Comment table in the database.
+
+
+
+controllers directory:
+
+
+
+homeController.js: Controller for handling requests related to the homepage.
+
+authController.js: Controller for handling user authentication and authorization.
+
+dashboardController.js: Controller for handling requests related to the user dashboard.
+
+postController.js: Controller for handling requests related to blog posts.
+
+commentController.js: Controller for handling requests related to comments.
+
+
+
+views directory:
+
+
+
+layouts directory:
+
+main.handlebars: Main layout file for the application.
+
+
+
+partials directory:
+
+header.handlebars: Partial view for the header section.
+
+footer.handlebars: Partial view for the footer section.
+
+
+
+home.handlebars: View for the homepage.
+
+login.handlebars: View for the login page.
+
+signup.handlebars: View for the signup page.
+
+dashboard.handlebars: View for the user dashboard.
+
+post.handlebars: View for an individual blog post.
+
+createPost.handlebars: View for creating a new blog post.
+
+
+
+config directory:
+
+
+
+config.json: Configuration file for the database connection.
+
+
+
+public directory:
+
+
+
+css directory: CSS files for styling the application.
+
+js directory: JavaScript files for client-side functionality.
+
+
+
+routes directory:
+
+
+
+index.js: Main router file for handling all the routes.
+
+
+
+middleware directory:
+
+
+
+auth.js: Middleware for handling user authentication.
+
+
+
+utils directory (optional):
+
+
+
+helpers.js: Helper functions for Handlebars templates.
+
+
+
+server.js: Entry point for the application.
+
+
+
+.env: Environment variables file for storing sensitive information.
+
+## Creating program dependencies
+1. Make sure to download and install node.js
+    1a. To check the Node.js version: node -v
+    1b. To check the npm version: npm -v
+
+
+2. Add  package.json file by go to the directory and run: npm init
+npm stands for Node Package Manager.
+3. An ORM which allows us to do queries in a javaScript way: npm install sequelize.
+4. For database:  npm i mysql2 
+5. Ability to deal with requests and responses and Routes:   npm i express
+6. For hashing our password: npm i bcrypt 
+7. Deals with the front end of our webAPP technology: npm i express-handlebars
+
+
+ Run the SQL shell to create the database:
+ 1. mysql -u root -p
+  SOURCE db/schema
+
+
+
+
+
+
 ---
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+
+
+
