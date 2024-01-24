@@ -3,7 +3,6 @@ const sequelize = require("../config/connection");
 
 class Blog extends Model {}
 
-// Initialize the Blog model
 Blog.init(
   {
     // Define the id column
@@ -13,17 +12,12 @@ Blog.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    // Define the title column
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     // Define the content column
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    // Define the author_id column
+    // Define the user_id column
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,7 +26,15 @@ Blog.init(
         key: "id",
       },
     },
-
+    // Define the blog_id column
+    blog_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "blog",
+        key: "id",
+      },
+    },
     // Define the created_at column
     created_at: {
       type: DataTypes.DATE,
@@ -51,11 +53,11 @@ Blog.init(
     sequelize,
     // Disable timestamps
     timestamps: false,
-    // Set the table name to 'blog'
+    // Set the table name to 'comment'
     freezeTableName: true,
     // Use underscores instead of camel case for column names
     underscored: true,
-    // Set the model name to 'blog'
+    // Set the model name to 'comment'
     modelName: "blog",
   }
 );

@@ -3,6 +3,7 @@
     "title": "Selkie founder defends the use of AI in new dress collection, amid backlash",
     "content": "The brand’s upcoming Valentine’s Day drop was inspired by vintage greeting cards, and features saccharine images of puppies surrounded by roses, or comically fluffy kittens painted against pastel backdrops. Printed on sweaters and dresses adorned with bows, the collection was meant to be a nostalgic, cheeky nod to romance. It was also designed using the AI image generator Midjourney. ",
     "author_id": 1,
+    "blog_id":1,
     "created_at": "2022-01-01T12:00:00Z",
     "updated_at": "2022-01-01T12:00:00Z"
   },
@@ -10,6 +11,7 @@
     "title": "The rabbit r1 will use Perplexity AI’s tech to answer your queries",
     "content": "The $200 r1 made rounds at the CES show as an AI-first gadget that saves you the hassle of taking your phone out for tasks like performing web searches, playing a song on Spotify, and ordering a cab. The device doesn’t have a monthly subscription fee at the moment. The device, designed by Teenage Engineering, has a 2.88-inch touchscreen, a push-to-talk button, a camera, a speaker, and two mics. The company has already sold 50,000 devices in pre-orders. Earlier today, it opened pre-orders for the 6th production batch with another 50,000 devices. Rabbit said that customers living in the EU and UK will all receive their device by the end of July even if they just pre-order a device from the 6th batch.",
     "author_id": 2,
+    "blog_id":2,
     "created_at": "2022-02-01T12:00:00Z",
     "updated_at": "2022-02-01T12:00:00Z"
   },
@@ -17,6 +19,7 @@
     "title": "The two faces of AI",
     "content": "Employee-monitoring software isn’t new. Also known as bossware, it is pitched by its makers as a way to help boost productivity, but by those who endure it, it’s a surefire way to deplete morale. Having once been subjected to intrusive screenshots as a remote contractor, my view is clearly the latter, so I wish I could say employee surveillance tech was on its way out; on the contrary, it seems to be on the rise, helped in part by AI (not to mention a misguided distrust for remote work.)",
     "author_id": 1,
+    "blog_id":3,
     "created_at": "2022-03-01T12:00:00Z",
     "updated_at": "2022-03-01T12:00:00Z"
   }
