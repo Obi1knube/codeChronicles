@@ -1,0 +1,71 @@
+Welcome, {{name}}!
+
+  
+
+
+
+
+  
+
+    
+Create a New Blog Post:
+
+    
+
+      
+
+        Blog Title:
+        
+
+      
+
+      
+
+        Topic:
+        
+
+      
+
+      
+
+        Content:
+        
+
+      
+
+      
+
+        Create
+      
+
+    
+
+  
+
+  {{#if projects.length}}
+  
+
+    
+Current Blog Posts:
+
+    {{#each projects as |project|}}
+    
+
+      
+
+        
+{{project.name}}
+
+      
+
+      
+
+        DELETE
+      
+
+    
+
+    {{/each}}
+  
+
+  {{/if}}

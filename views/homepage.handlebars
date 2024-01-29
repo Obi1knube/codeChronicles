@@ -1,0 +1,21 @@
+<!-- Loop over each object in the blogPosts array -->
+{{#each blogs as |post| }}
+  <div class="row mb-4 blog-post">
+    <div class="col-md-5">
+      <h2>
+        <!-- Render the post title -->
+        <a href="/post/{{post.id}}">{{post.title}}</a>
+      </h2>
+      <p>
+        <!-- Render the post author and date -->
+        Written by {{post.user}} on {{ post.date_created}}
+      </p>
+    </div>
+    <div class="col-md-7">
+      <p>
+        <!-- Render the post content -->
+        {{post.content}}
+      </p>
+    </div>
+  </div>
+{{/each}}

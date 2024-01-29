@@ -26,15 +26,7 @@ Blog.init(
         key: "id",
       },
     },
-    // Define the blog_id column
-    blog_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: "blog",
-        key: "id",
-      },
-    },
+   
     // Define the created_at column
     created_at: {
       type: DataTypes.DATE,

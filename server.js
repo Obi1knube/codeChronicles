@@ -3,7 +3,8 @@ const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
-const routes = require("./controllers/api");
+
+const routes = require("./controllers");
 const helpers = require("./utils/helpers");
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -15,6 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
+//initialises express-handlebars
 const hbs = exphbs.create({ helpers });
 
 // Configure session options
@@ -39,6 +41,7 @@ const sess = {
 app.use(session(sess));
 
 // Set the template engine to Handlebars
+//Here we determine what kind of engine we would be using. we could choose a diffent engine, such as EJS
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 

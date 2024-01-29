@@ -1,12 +1,12 @@
-// Import necessary modules and models
+//import necessary modules and models
 const router = require("express").Router();
 const { Blog, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-// Route to get the homepage
+//Route to get all the blogs and render the homepage template
 router.get("/", async (req, res) => {
   try {
-    // Get all blogs and join with user data
+    //Get all blogs and join with user data
     const blogData = await Blog.findAll({
       include: [
         {
@@ -19,17 +19,17 @@ router.get("/", async (req, res) => {
     // Serialize data so the template can read it
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
+    //Pass serialized data and session flag into template
     res.render("homepage", {
       blogs,
-      logged_in: req.session.logged_in,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Route to get a specific blog
+// Route to get a specific blog by ID and render the blog template
 router.get("/blog/:id", async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
@@ -52,13 +52,13 @@ router.get("/blog/:id", async (req, res) => {
   }
 });
 
-// Route to get the user's profile
-// Use withAuth middleware to prevent access to route
+//Route to get the user's profile and render the profile template
+//Use withAuth middleware to prevent access to route
 router.get("/profile", withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
+    //find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
+      attributes: { excluide: ["password"] },
       include: [{ model: Blog }],
     });
 
@@ -66,27 +66,24 @@ router.get("/profile", withAuth, async (req, res) => {
 
     res.render("profile", {
       ...user,
-      logged_in: true,
+      logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Route to get the login page
+//Route to get the login page
 router.get("/login", (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+  //if the user is already logged in, redirect to another route
   if (req.session.logged_in) {
     res.redirect("/profile");
     return;
   }
-
   res.render("login");
 });
 
 module.exports = router;
-
-// This file defines the routes for the homepage, specific blog, user profile, and login page.
 
 // The / route is a GET route that retrieves all blogs and joins them with user data.
 // The serialized data is passed to the homepage template along with the session flag indicating if the user is logged in.

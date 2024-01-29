@@ -1,0 +1,44 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Code Chronicles</title>
+    <link rel="stylesheet" href="/css/jass.css" />
+    <link rel="stylesheet" href="/css/stylesheet.css" />
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
+  </head>
+  
+  <body>
+    <div class="flex-column justify-space-around">
+      <header class="display-flex justify-space-between align-center p-2">
+        <h1>
+          <span role="img" aria-label="AI">
+            <i class="fas fa-robot" style="font-size:48px;color:red"></i>
+          </span>
+          <a href="/">Code Chronicles </a>
+        </h1>
+        <nav>
+          <!-- Conditionally render login or logout links -->
+          {{#if logged_in}}
+            <a href="profile">profile</a>
+            |
+            <button class="no-button" id="logout"> logout</button>
+          {{else}}
+            <a href="login">login</a>
+          {{/if}}
+        </nav>
+      </header>
+      <main class="container container-fluid mt5">
+        <!-- Render the sub layout -->
+        {{{body}}}
+      </main>
+    </div>
+    <footer>
+      <p> © Code Chronicles</p>
+      <a href="https://github.com/Obi1knube/codeChronicles"><i
+          id="gitlogo"
+          class="fa-brands fa-github"
+        ></i></a>
+    </footer>
+  </body>
+</html>
