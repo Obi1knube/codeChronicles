@@ -6,7 +6,12 @@
   },
   {
     "name": "Kyle Wiggers",
-    "email": "kyle@yahoo.es.com",
+    "email": "kyle@yahoo.com",
+    "password": "password12345"
+  },
+  {
+    "name": "Robert Palmer",
+    "email": "rob@hotmail.com",
     "password": "password12345"
   }
 ]

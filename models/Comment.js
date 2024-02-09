@@ -12,15 +12,16 @@ Comment.init(
       autoIncrement: true,
     },
     description: {
-      type: DataTypes.TEXT,
-    },
-    date_created: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      validate: {
+        len: [1],
+      },
     },
+
     user_id: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       references: {
         model: "user",
         key: "id",
@@ -36,6 +37,7 @@ Comment.init(
   },
   {
     sequelize,
+    // Disable timestamps
     timestamps: false,
     freezeTableName: true,
     underscored: true,

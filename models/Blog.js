@@ -12,6 +12,11 @@ Blog.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    // Define the title column
+    title: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
     // Define the content column
     content: {
       type: DataTypes.TEXT,
@@ -20,24 +25,10 @@ Blog.init(
     // Define the user_id column
     user_id: {
       type: DataTypes.INTEGER,
-      allowNull: false,
       references: {
         model: "user",
         key: "id",
       },
-    },
-   
-    // Define the created_at column
-    created_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    // Define the updated_at column
-    updated_at: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
     },
   },
   {
