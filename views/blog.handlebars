@@ -1,12 +1,18 @@
-<!-- blog.handlebar -->
-{{!-- include the header partial --}}
-{{ > header}}
-<div class="container">
-  <h1>{{title}} </h1>
-  <p> {{content}} </p>
-  <p> Written by {{User.name}} </p>
-
-
+<div class="blog-post">
+  <h2>{{title}}</h2>
+  <p>{{content}}</p>
+  <p>Written by {{user.name}} on {{format_date date_created}}</p>
+  <h3>Comments:</h3>
+  {{#each comments}}
+    <div class="comment">
+      <p>{{this}}</p>
+    </div>
+  {{/each}}
+  <form id="comment-form">
+    <div class="form-group">
+      <label for="comment">Add a comment:</label>
+      <textarea class="form-control" id="comment" rows="3"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 </div>
-{{!-- include the footer partial --}}
-{{ > footer}}
