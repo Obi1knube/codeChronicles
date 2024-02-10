@@ -1,10 +1,10 @@
-# 14 Model-View-Controller (MVC): Tech Blog
+# 14 Model-View-Controller (MVC): Tech Blog (Code Chronicles)
 
 ## Your Task
 
 Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+The task for this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. I built this site completely from scratch and I deployed it to Heroku. This app follows the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
 
 ## User Story
 
@@ -66,60 +66,6 @@ You’ll also need the [dotenv package](https://www.npmjs.com/package/dotenv) to
 
 **Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
 
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-    * Application’s folder structure follows the Model-View-Controller paradigm.
-
-    * Uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
-
-    * Application must be deployed to Heroku.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
 ## Review
 
 You are required to submit BOTH of the following for review:
@@ -128,144 +74,6 @@ You are required to submit BOTH of the following for review:
 
 * The URL of the GitHub repository, with a unique name and a readme describing the project.
 
-
-To create the CMS-style blog site and follow the MVC architectural structure, the following files and directories may be needed:
-
-
-
-models directory:
-
-
-
-User.js: Model for the User table in the database.
-
-Post.js: Model for the Post table in the database.
-
-Comment.js: Model for the Comment table in the database.
-
-
-
-controllers directory:
-
-
-
-homeController.js: Controller for handling requests related to the homepage.
-
-authController.js: Controller for handling user authentication and authorization.
-
-dashboardController.js: Controller for handling requests related to the user dashboard.
-
-postController.js: Controller for handling requests related to blog posts.
-
-commentController.js: Controller for handling requests related to comments.
-
-
-
-views directory:
-
-
-
-layouts directory:
-
-main.handlebars: Main layout file for the application.
-
-
-
-partials directory:
-
-header.handlebars: Partial view for the header section.
-
-footer.handlebars: Partial view for the footer section.
-
-
-
-home.handlebars: View for the homepage.
-
-login.handlebars: View for the login page.
-
-signup.handlebars: View for the signup page.
-
-dashboard.handlebars: View for the user dashboard.
-
-post.handlebars: View for an individual blog post.
-
-createPost.handlebars: View for creating a new blog post.
-
-
-
-config directory:
-
-
-
-config.json: Configuration file for the database connection.
-
-
-
-public directory:
-
-
-
-css directory: CSS files for styling the application.
-
-js directory: JavaScript files for client-side functionality.
-
-
-
-routes directory:
-
-
-
-index.js: Main router file for handling all the routes.
-
-
-
-middleware directory:
-
-
-
-auth.js: Middleware for handling user authentication.
-
-
-
-utils directory (optional):
-
-
-
-helpers.js: Helper functions for Handlebars templates.
-
-
-
-server.js: Entry point for the application.
-
-
-
-.env: Environment variables file for storing sensitive information.
-
-## Creating program dependencies
-1. Make sure to download and install node.js
-    1a. To check the Node.js version: node -v
-    1b. To check the npm version: npm -v
-
-
-2. Add  package.json file by go to the directory and run: npm init
-npm stands for Node Package Manager.
-3. An ORM which allows us to do queries in a javaScript way: npm install sequelize.
-4. For database:  npm i mysql2 
-5. Ability to deal with requests and responses and Routes:   npm i express
-6. For hashing our password: npm i bcrypt 
-7. Deals with the front end of our webAPP technology: npm i express-handlebars
-
-
- Run the SQL shell to create the database:
- 1. mysql -u root -p
-  SOURCE db/schema
-
-
-
-
-
-
----
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 
 

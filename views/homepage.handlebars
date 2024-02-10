@@ -1,6 +1,6 @@
 <!-- Loop over each object in the blogPosts array -->
-{{#each blogs as |post|}}
-  <div class='row mb-4 post'>
+{{#each blogs as |blog|}}
+  <div class='row mb-4 blog'>
     <div class='col-md-5'>
       <h2>
         <!-- Call helper function with triple brackets to render the emoji span as HTML -->
@@ -8,15 +8,17 @@
         <a href='/post/{{blog.id}}'>{{blog.title}}</a>
       </h2>
       <p>
-        <span for='img' aria-label='author'>👤</span>
-        <!-- Display the author's name -->
-        {{post.user}}
+        Created by
+        {{blog.user.name}}
+        on
+        {{format_date post.date_published}}
+        <span for='img' aria-label='user'>👤</span>
       </p>
-      <p>Published on {{format_date post.date_published}}</p>
+
     </div>
     <div class='col-md-7'>
       <p>
-        {{post.content}}
+        {{blog.content}}
       </p>
     </div>
   </div>

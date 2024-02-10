@@ -1,20 +1,20 @@
 // Import necessary modules and models
-const router = require("express").Router();
-const { Comment, Blog, User } = require("../models");
-const withAuth = require("../utils/auth");
+const router = require('express').Router();
+const { Comment, Blog, User } = require('../models');
+const withAuth = require('../utils/auth');
 
 // Route to get all blog posts and render the homepage template
-router.get("/", withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     // GET all blog posts and JOIN with userData
     const blogData = await Blog.findAll({
       include: [
         {
           model: User,
-          attributes: ["name", "username"],
+          attributes: ['name'],
           include: {
             model: Comment,
-            attributes: ["description"],
+            attributes: ['description'],
           },
         },
       ],
@@ -24,7 +24,7 @@ router.get("/", withAuth, async (req, res) => {
     const blogs = blogData.map((blog) => blog.get({ plain: true }));
 
     // Pass serialized data and session flag into template
-    res.render("homepage", {
+    res.render('homepage', {
       blogs,
       logged_in: req.session.logged_in,
     });
@@ -34,29 +34,29 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // Route to get a specific blog by id and render the blog template
-router.get("/blog/:id", withAuth, async (req, res) => {
+router.get('/blog/:id', withAuth, async (req, res) => {
   try {
     const blogData = await Blog.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ["name", "username"],
+          attributes: ['name'],
           include: {
             model: Comment,
-            attributes: ["content"],
+            attributes: ['content'],
           },
         },
       ],
     });
 
     if (!blogData) {
-      res.status(404).json({ message: "No blog found with this id" });
+      res.status(404).json({ message: 'No blog found with this id' });
       return;
     }
 
     const blog = blogData.get({ plain: true });
 
-    res.render("blog", {
+    res.render('blog', {
       blog,
       logged_in: req.session.logged_in,
     });
@@ -66,16 +66,16 @@ router.get("/blog/:id", withAuth, async (req, res) => {
 });
 
 // Route to get the user's profile and render the profile template
-router.get("/profile", withAuth, async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
+      attributes: { exclude: ['password'] },
       include: [{ model: Blog }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render("profile", {
+    res.render('profile', {
       ...user,
       logged_in: true,
     });
@@ -85,14 +85,14 @@ router.get("/profile", withAuth, async (req, res) => {
 });
 
 // Route to render the login template
-router.get("/login", (req, res) => {
+router.get('/login', (req, res) => {
   //If the user is already logged in, redirect the request to qnother route
   if (req.session.logged_in) {
-    res.redirect("/profile");
+    res.redirect('/profile');
     return;
   }
 
-  res.render("login");
+  res.render('login');
 });
 
 module.exports = router;
