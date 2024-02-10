@@ -4,7 +4,7 @@ const { Comment, Blog, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Route to get all blog posts and render the homepage template
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     // GET all blog posts and JOIN with userData
     const blogData = await Blog.findAll({
