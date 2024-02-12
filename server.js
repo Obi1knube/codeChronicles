@@ -1,12 +1,12 @@
 // Import required dependencies
-const path = require("path");
-const express = require("express");
-const session = require("express-session");
-const exphbs = require("express-handlebars");
-const routes = require("./controllers");
-const helpers = require("./utils/helpers");
-const sequelize = require("./config/connection");
-const SequelizeStore = require("connect-session-sequelize")(session.Store);
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const routes = require('./controllers');
+const helpers = require('./utils/helpers');
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Create an instance of Express.js
 const app = express();
@@ -19,13 +19,13 @@ const hbs = exphbs.create({ helpers });
 
 // Configure session options
 const sess = {
-  secret: "Super secret secret", // Secret used to sign the session ID cookie
+  secret: 'Super secret secret', // Secret used to sign the session ID cookie
   cookie: {
     // Configuration for the session ID cookie
     maxAge: 300000,
     httpOnly: true,
     secure: false,
-    sameSite: "strict",
+    sameSite: 'strict',
   },
   resave: false, // Whether to save the session back to the session store if it was not modified
   saveUninitialized: true, // Whether to save uninitialized sessions to the session store
@@ -39,22 +39,22 @@ const sess = {
 app.use(session(sess));
 
 // Set the template engine to Handlebars
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 // Parse incoming requests with JSON payloads and URL-encoded request bodies
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Use routes defined in the 'controllers' module
 app.use(routes);
 
 // Sync the Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log("Now listening"));
+  app.listen(PORT, () => console.log('Now listening'));
 });
 
 // This code sets up the server for the application using Express.js. Here's a breakdown of what each part does:

@@ -65,8 +65,8 @@ router.get('/blog/:id', withAuth, async (req, res) => {
   }
 });
 
-// Route to get the user's profile and render the profile template
-router.get('/profile', withAuth, async (req, res) => {
+// Route to get the user's dashboard and render the dashboard template
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
@@ -75,7 +75,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render('dashboard', {
       ...user,
       logged_in: true,
     });
@@ -88,38 +88,11 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get('/login', (req, res) => {
   //If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/dashboard');
     return;
   }
 
   res.render('login');
-});
-
-//Route to render the dashboard template
-router.get('/dashboard', withAuth, async (req, res) => {
-  try {
-    //Get all blog posts for the logged in user
-    const blogData = await Blog.findAll({
-      where: { user_id: req.session.user_id },
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-          include: {
-            model: Comment,
-            attributes: ['description'],
-          },
-        },
-      ],
-    });
-    //Serialize data so the template can read it
-    const blogs = blogData.map((blog) => blog.get({ plain: true }));
-
-    //Pass serialized data and session flag into template
-    res.render('dashboard', { blogs, logged_in: req.session.logged_in });
-  } catch (err) {
-    res.status(500).json(err);
-  }
 });
 
 module.exports = router;
