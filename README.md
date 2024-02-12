@@ -70,9 +70,11 @@ I also needed the [dotenv package](https://www.npmjs.com/package/dotenv) to use 
 
 You are required to submit BOTH of the following for review:
 
-* The URL of the functional, deployed application.
+* The URL of the functional, deployed application.: https://tec-blog-c5d663a03d3d.herokuapp.com/
 
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+
+* The URL of the GitHub repository, with a unique name and a readme describing the project. : https://github.com/Obi1knube/codeChronicles
+  
 
 © 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
 
