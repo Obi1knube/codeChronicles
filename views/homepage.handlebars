@@ -5,6 +5,16 @@
   </ul>
 </nav>
 
+
+
+{{#if isAuthenticated}}
+ <!-- Add comment form-->
+ <form action=" /add- comment" method="POST">
+ <textarea name="comment" placeholder="Enter your comment"></textarea>
+ <button type="submit"> Submit</button>
+ </form>
+ {{/if}}
+
 {{! Loop through the blogs data and display them }}
 {{#each blogs}}
   <div class='row mb-4 blog'>
