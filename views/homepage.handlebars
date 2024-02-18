@@ -1,19 +1,10 @@
-<nav>
-  <ul>
-    <li class='flex-column justify-space-around ><a href='/'>Home</a></li>
-       <li><a href='/login'>login</a></li>
-  </ul>
-</nav>
-
-
-
-{{#if isAuthenticated}}
- <!-- Add comment form-->
- <form action=" /add- comment" method="POST">
- <textarea name="comment" placeholder="Enter your comment"></textarea>
- <button type="submit"> Submit</button>
- </form>
- {{/if}}
+{{!-- {{#if logged_in}}
+  <!-- Add comment form-->
+  <form action='./api/comment' method='POST'>
+    <textarea name='text' placeholder='Enter your comment'></textarea>
+    <button type='submit'> Submit</button>
+  </form>
+{{/if}}
 
 {{! Loop through the blogs data and display them }}
 {{#each blogs}}
@@ -33,3 +24,31 @@
     </div>
   </div>
 {{/each}}
+<script src='./js/comment.js'></script> --}}
+
+{{#if logged_in}}
+  <!-- Add comment form-->
+  <form action='./api/comment' method='POST'>
+    <textarea name='text' placeholder='Enter your comment'></textarea>
+    <button type='submit'>Submit</button>
+  </form>
+{{/if}}
+
+{{#each blogs}}
+  <div class='row mb-4 blog'>
+    <div class='col-md-5'>
+      <h2>{{title}}</h2>
+      <p>{{content}}</p>
+      <p>Written by {{user.name}}</p>
+      <!-- Updated to use the correct context -->
+    </div>
+    <div class='col-md-7'>
+      {{! Loop through the comments data and display them }}
+      {{#each this.comments}}
+        <!-- Updated to use the correct context -->
+        <p>{{description}}</p>
+      {{/each}}
+    </div>
+  </div>
+{{/each}}
+<script src='./js/comment.js'></script>

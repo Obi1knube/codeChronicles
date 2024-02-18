@@ -46,9 +46,9 @@ const commentFormHandler = async (event) => {
   const content = document.querySelector('#comment-content').value.trim();
 
   if (content) {
-    const blogId = event.target.closest('.row').dataset.id;
+    const blog_id = event.target.closest('.row').dataset.id;
 
-    const response = await fetch(`/api/blogs/${blogId}/comments`, {
+    const response = await fetch(`/api/blogs/${blog_id}/comments`, {
       method: 'POST',
       body: JSON.stringify({ content }),
       headers: {
